@@ -1865,7 +1865,7 @@ import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { useNavigation, useRoute } from '@react-navigation/native';
 
 // !!! تأكد أن هذا هو الرابط الصحيح لـ Ngrok الخاص بك !!!
-const API_BASE_URL = 'https://3b3f-34-125-53-190.ngrok-free.app'; // تم استخدام الرابط الذي وفرته سابقًا
+const API_BASE_URL = 'https://da65-34-125-204-7.ngrok-free.app'; // تم استخدام الرابط الذي وفرته سابقًا
 
 const backgroundImage = require('../assets/45.jpg'); // تأكد أن المسار صحيح أو قم بتعديله
 const botTalkingAnimation = require('../assets/bot-talking.json'); // تأكد أن المسار صحيح أو قم بتعديله

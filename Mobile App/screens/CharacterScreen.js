@@ -709,7 +709,7 @@ import { useNavigation, useIsFocused } from '@react-navigation/native';
 
 // تأكد من أن هذا هو عنوان ngrok URL الخاص بك النشط للباك إند
 // const API_BASE_URL = 'https://YOUR_NGROK_SUBDOMAIN.ngrok-free.app'; // مثال، استبدله بعنوان URL الفعلي الخاص بك
-const API_BASE_URL = 'https://3b3f-34-125-53-190.ngrok-free.app'; // ضع هنا عنوان الـ ngrok الخاص بك
+const API_BASE_URL = 'https://da65-34-125-204-7.ngrok-free.app'; // ضع هنا عنوان الـ ngrok الخاص بك
 
 
 const CharacterScreen = () => {

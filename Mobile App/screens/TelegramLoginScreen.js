@@ -7,7 +7,7 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons'; // لاستخدام الأيقونات
 
-const PYTHON_API_URL = 'https://3b3f-34-125-53-190.ngrok-free.app'; 
+const PYTHON_API_URL = 'https://da65-34-125-204-7.ngrok-free.app'; 
 
 const TelegramLoginScreen = () => {
     const navigation = useNavigation();

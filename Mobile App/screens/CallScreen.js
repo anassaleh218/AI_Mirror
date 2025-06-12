@@ -226,7 +226,7 @@ import { Ionicons, MaterialIcons } from '@expo/vector-icons'; // أيقونات 
 import { useNavigation, useRoute } from '@react-navigation/native';
 
 // !!! تأكد أن هذا هو الرابط الصحيح لـ Ngrok الخاص بك !!!
-const API_BASE_URL = 'https://3b3f-34-125-53-190.ngrok-free.app'; // نفس الرابط المستخدم في ChatScreen
+const API_BASE_URL = 'https://da65-34-125-204-7.ngrok-free.app'; // نفس الرابط المستخدم في ChatScreen
 
 const backgroundImage = require('../assets/45.jpg'); // نفس الخلفية
 const botTalkingAnimation = require('../assets/bot-talking.json'); // أنيميشن تحدث البوت

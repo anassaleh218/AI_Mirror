@@ -67,12 +67,13 @@
 
 
 // server.js
+// server.js
 import fs from 'fs';
 import express from 'express';
 import cors from 'cors';
 import qrcode_terminal from 'qrcode-terminal';
 import pkg from 'whatsapp-web.js';
-import { URL } from 'url'; // استيراد URL للتعامل مع الروابط بأمان
+import { URL } from 'url';
 
 const { Client, LocalAuth } = pkg;
 const app = express();
@@ -82,9 +83,10 @@ app.use(cors());
 app.use(express.json());
 
 let client;
-let qrCodeDataUrl = null; // تم التأكد من أن المتغير معرّف
+let qrCodeDataUrl = null;
 let isReady = false;
 let chatsCache = [];
+let loggedInUserNumber = null;
 
 function initializeWhatsApp() {
     console.log('🔄 Initializing WhatsApp client...');
@@ -103,29 +105,41 @@ function initializeWhatsApp() {
         isReady = false;
     });
 
-    // --- هذا هو الجزء الأهم الذي تم إصلاحه نهائياً ---
     client.on('ready', async () => {
         console.log('✅ WhatsApp Client is ready!');
         isReady = true;
         qrCodeDataUrl = null; 
-        
+        try {
+            if (client.info) {
+                loggedInUserNumber = client.info.wid._serialized;
+                console.log(`✅ Logged in user ID detected: ${loggedInUserNumber}`);
+            }
+        } catch(e) {
+            console.error("❌ Could not get client info on ready:", e);
+        }
         try {
             const chats = await client.getChats();
             
             const chatDataPromises = chats.map(async (chat) => {
                 let picUrl = null;
+                
+                // ############ بداية التعديل الأساسي ############
                 try {
-                    picUrl = await chat.getProfilePicUrl();
+                    // بدلًا من طلب الصورة مباشرة من الشات،
+                    // نطلب الأول بيانات جهة الاتصال الكاملة ثم نطلب الصورة منها.
+                    const contact = await chat.getContact();
+                    picUrl = await contact.getProfilePicUrl();
                 } catch (e) {
-                    // طبيعي، بعض الشاتات ليس لها صورة
+                    // هذا طبيعي جدًا ويحدث لو الشات ليس له صورة أو محظور.
+                    // لا داعي لطباعة أي خطأ هنا.
                 }
+                // ############ نهاية التعديل الأساسي ############
 
                 return {
-                    // التأكد من أن الخاصية اسمها 'id' بالحروف الصغيرة
                     id: chat.id._serialized,
                     name: chat.name || chat.id.user,
                     isGroup: chat.isGroup,
-                    picUrl: picUrl
+                    picUrl: picUrl // سيتم حفظ الرابط هنا (أو null إذا لم توجد صورة)
                 };
             });
 
@@ -133,7 +147,6 @@ function initializeWhatsApp() {
             
             console.log(`✅ Fetched and cached ${chatsCache.length} chats.`);
             
-            // طباعة عينة للتأكد من وجود الـ id
             if (chatsCache.length > 0) {
                 console.log("Sample cache item being sent to app:", JSON.stringify(chatsCache[0], null, 2));
             }
@@ -171,7 +184,6 @@ app.get('/get-chats', (req, res) => {
     res.json({ chats: chatsCache });
 });
 
-// في ملف server.js
 app.post('/fetch-chat-messages', async (req, res) => {
     console.log("Received request to fetch messages for chat:", req.body.chatId);
     
@@ -199,9 +211,9 @@ app.post('/fetch-chat-messages', async (req, res) => {
         
         console.log(`✅ Fetched ${formattedMessages.length} messages. Sending back to the app.`);
         
-        // إرجاع الرسائل إلى تطبيق الموبايل مباشرة
         res.json({
             status: 'success',
+            userId: loggedInUserNumber,
             characterName: selectedChat.name || selectedChat.id.user,
             messages: formattedMessages
         });
