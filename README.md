@@ -28,7 +28,7 @@ The project addresses the challenge of generic chatbots by creating digital comp
 * **Advanced AI Stack**:
 
   * **Speech-to-Text**: High-accuracy transcription via OpenAI's **Whisper (Large-v3)**.
-  * **Text-to-Speech**: High-quality, clonable voice generation using **Coqui AI's XTTS model**.
+  * **Text-to-Speech**: High-quality, clonable voice generation using **playai-tts-arabic** via the high-speed Groq API for intelligent response generation.
   * **Core LLM**: Powered by **`meta-llama/llama-4-scout-17b-16e-instruct`** via the high-speed Groq API for intelligent response generation.
 
 ## ⚔️ Competitive Landscape
