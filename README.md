@@ -88,23 +88,109 @@ Most chatbots are impersonal and rely on generic responses. AI Mirror introduces
 
 ---
 
-### 1. Backend Setup (FastAPI)
+### 1️⃣ Backend Setup (Python / FastAPI)
 
 ```bash
-# Clone the repo
+# Clone the repository
 git clone https://github.com/your-username/ai-mirror.git
 cd ai-mirror/backend
 
-# Install dependencies
+# Install Python dependencies
 pip install -r requirements.txt
 
-# Create a .env file with your API keys
-# GROQ_API_KEY="your_groq_key"
-# OPENAI_API_KEY="your_openai_key"
-# PLAYAI_API_KEY="your_playai_key"
+# Create a .env file and add your API keys
+# GROQ_API_KEY="YOUR_GROQ_KEY"
+# OPENAI_API_KEY="YOUR_OPENAI_KEY"
+# PLAYAI_API_KEY="YOUR_PLAYAI_KEY"
 
 # Start the FastAPI server
 uvicorn main:app --reload
+```
 
-# Expose with Ngrok (in a new terminal)
+```bash
+# In a new terminal, expose your backend with Ngrok
 ngrok http 8000
+```
+
+> 📌 **Note**: Save the Ngrok forwarding URL (e.g., `https://<hash>.ngrok-free.app`) for use in the frontend.
+
+---
+
+### 2️⃣ WhatsApp Middleware Setup (Node.js)
+
+```bash
+# Navigate to the middleware directory
+cd ../middleware
+
+# Install Node.js dependencies
+npm install
+
+# Start the middleware server
+node index.js
+```
+
+> 📱 On first run, you may need to scan a WhatsApp QR code from the terminal with your mobile app to establish the session.
+
+---
+
+### 3️⃣ Frontend Setup (React Native)
+
+```bash
+# Navigate to the frontend directory
+cd ../frontend
+
+# Install dependencies
+npm install
+```
+
+```js
+// In your React Native config file or API client,
+// set the API base URL to your Ngrok URL
+const API_URL = "https://<your-ngrok>.ngrok-free.app";
+```
+
+```bash
+# Start the application
+npx expo start
+```
+
+> 📲 Scan the QR code from the terminal using the **Expo Go** app on your mobile device.
+
+---
+
+## ❯ Usage
+
+1. **Launch the App**: Open the AI Mirror mobile app.
+2. **Create a Persona**:
+   - Fill in the questionnaire manually.
+   - Upload your exported WhatsApp `.txt` file.
+   - Log in securely to Telegram and select a chat.
+3. **Start Chatting**:
+   - Text, voice notes, or live voice calls — all personalized via your AI persona!
+
+---
+
+## ❯ Project Team & Acknowledgments
+
+### 👨‍💻 Authors
+
+- Anas Saleh Mousa AlSadiq  
+- Yara Mohammed Attia  
+- Mennatullah Essam Abd ElAziz  
+- Mahmoud Nasr Abd ElAziz  
+- Mohamed Ashraf Abo El Maaty  
+- Mohamed Ihab Mohamed Farid  
+
+### 🎓 Supervisor
+
+**Dr. Salwa Osama**  
+> We would like to express our deepest gratitude for her invaluable guidance, expertise, and mentorship throughout this project.
+
+---
+
+## 📄 License
+
+This project is developed for academic and research purposes.  
+For collaborations or inquiries, feel free to contact the authors directly.
+
+---
