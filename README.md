@@ -132,7 +132,6 @@ Scan the Expo QR code with your phone to launch the app.
 
 ## 🔮 Future Work
 
-* **Dynamic Memory**: Implement a mechanism for the AI to learn from new conversations and update its FAISS memory in real-time.
 * **Expanded Data Sources**: Add support for more platforms like Facebook Messenger or iMessage.
 * **Realistic Avatar**: Fully implement lip-syncing for the animated avatar to enhance immersion.
 * **On-Device Models**: Explore running smaller models on-device to improve privacy and reduce reliance on external APIs.
