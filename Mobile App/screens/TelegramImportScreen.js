@@ -9,7 +9,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as FileSystem from 'expo-file-system';
 import { Ionicons } from '@expo/vector-icons';
 
-const PYTHON_API_URL = 'https://da65-34-125-204-7.ngrok-free.app'; 
+const PYTHON_API_URL = 'https://1dfe-34-34-115-170.ngrok-free.app'; 
 
 // تأكد من وجود صورة افتراضية في هذا المسار
 const placeholderImage = require('../assets/avatar-placeholder.png');
