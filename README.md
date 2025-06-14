@@ -35,14 +35,6 @@ The project addresses the challenge of generic chatbots by creating digital comp
 
 AI Mirror differentiates itself from existing commercial platforms by focusing on mirroring the *user's own personality* rather than interacting with pre-defined or fictional characters.
 
-| Feature                             | AI Mirror                           | Replika                | Character.AI       | Anima AI                 |
-| :---------------------------------- | :---------------------------------- | :--------------------- | :----------------- | :----------------------- |
-| **Mimics User's Real Personality**  | **Yes** (based on real user data)   | No                     | Limited (scripted) | Partially                |
-| **Learns from Real Messages**       | WhatsApp, Telegram, Questionnaire   | Questionnaire only     | No                 | No                       |
-| **Matches User's Style & Emotions** | **Fully** (via data analysis)       | Emotionally Reactive   | Scripted Responses | Tries to Adapt           |
-| **Supports Voice Output**           | **Yes (High-quality, clonable)**    | Yes                    | No                 | Yes (Basic)              |
-| **Primary Goal**                    | **Personalized, self-mimicking AI** | Emotional companion AI | Role-play          | Emotional chat companion |
-
 ## 🏗️ System Architecture
 
 The project utilizes a distributed, three-part architecture for modularity and scalability:
